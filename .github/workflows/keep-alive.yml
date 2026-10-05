@@ -1,0 +1,19 @@
+# Pings the site once a day so the free Supabase project never pauses for inactivity.
+# Setup: GitHub repo → Settings → Secrets and variables → Actions → Variables → New variable
+#   Name: SITE_URL   Value: https://kindbharat.org
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: "30 3 * * *" # every day at 09:00 IST
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping health endpoint
+        run: |
+          if [ -z "${{ vars.SITE_URL }}" ]; then echo "Set the SITE_URL repository variable"; exit 1; fi
+          curl --fail --silent --show-error --retry 3 --retry-delay 20 "${{ vars.SITE_URL }}/api/health"
