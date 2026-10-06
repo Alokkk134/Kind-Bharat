@@ -7,12 +7,17 @@ import { initialState } from "@/lib/action-state";
 import { FormMessage } from "@/components/ui/alert";
 import { Input } from "@/components/ui/field";
 import { SubmitButton } from "@/components/ui/submit-button";
+import { GoogleButton, AuthDivider } from "@/components/auth/google-button";
 import { signInAction } from "../actions";
 
 export function LoginForm({ next }: { next?: string }) {
   const [state, action] = useActionState(signInAction, initialState);
+  const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard";
   return (
-    <ActionForm action={action} className="space-y-4" noValidate>
+    <div className="space-y-4">
+      <GoogleButton next={safeNext} label="Log in with Google" />
+      <AuthDivider />
+      <ActionForm action={action} className="space-y-4" noValidate>
       <FormMessage state={state} />
       {next && <input type="hidden" name="next" value={next} />}
       <Input label="Email" name="email" type="email" autoComplete="email" required error={state.fieldErrors?.email} />
@@ -32,6 +37,7 @@ export function LoginForm({ next }: { next?: string }) {
       <SubmitButton className="w-full" size="lg" pendingText="Logging in…">
         Log in
       </SubmitButton>
-    </ActionForm>
+      </ActionForm>
+    </div>
   );
 }
