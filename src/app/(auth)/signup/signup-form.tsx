@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { FormMessage } from "@/components/ui/alert";
 import { Checkbox, Input } from "@/components/ui/field";
 import { SubmitButton } from "@/components/ui/submit-button";
+import { GoogleButton, AuthDivider } from "@/components/auth/google-button";
 import { signUpAction } from "../actions";
 
 const ROLES = [
@@ -34,7 +35,15 @@ export function SignupForm({ defaultRole }: { defaultRole: "donor" | "ngo" }) {
   }
 
   return (
-    <ActionForm action={action} className="space-y-4" noValidate>
+    <div className="space-y-4">
+      {/* Google creates donor accounts only; NGOs pick their account type on the form below. */}
+      {role === "donor" && (
+        <>
+          <GoogleButton next="/dashboard" label="Sign up with Google" />
+          <AuthDivider />
+        </>
+      )}
+      <ActionForm action={action} className="space-y-4" noValidate>
       <FormMessage state={state} />
       <fieldset>
         <legend className="mb-2 text-sm font-semibold">Choose your account type</legend>
@@ -101,6 +110,7 @@ export function SignupForm({ defaultRole }: { defaultRole: "donor" | "ngo" }) {
       <SubmitButton className="w-full" size="lg" pendingText="Creating account…">
         Create {role === "ngo" ? "NGO" : "donor"} account
       </SubmitButton>
-    </ActionForm>
+      </ActionForm>
+    </div>
   );
 }
