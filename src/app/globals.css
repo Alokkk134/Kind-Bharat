@@ -243,3 +243,8 @@ details.faq > summary { list-style: none; cursor: pointer; }
 details.faq > summary::-webkit-details-marker { display: none; }
 details.faq[open] .faq-icon { transform: rotate(45deg); }
 details.faq[open] > div { animation: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* Page loader + navigation feedback */
+@keyframes kb-breathe { 0%, 100% { transform: scale(0.9); opacity: 0.85; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes kb-dot { 0%, 80%, 100% { transform: translateY(0); opacity: 0.4; } 40% { transform: translateY(-4px); opacity: 1; } }
+html[data-navigating], html[data-navigating] * { cursor: progress; }
