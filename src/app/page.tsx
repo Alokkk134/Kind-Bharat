@@ -64,14 +64,14 @@ export default async function HomePage() {
           <div className="relative z-10">
             <Reveal>
               <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 px-3 py-1.5 text-xs font-semibold text-primary shadow-sm backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5 text-accent" /> India&apos;s zero-fee fundraising platform
+                <Sparkles className="h-3.5 w-3.5 text-accent" /> Verified NGOs · Zero fees · Real proof
               </p>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-5 font-serif text-[2.75rem] font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-                Fundraising that
+                See what your
                 <br />
-                <span className="text-gradient">never takes a&nbsp;rupee.</span>
+                <span className="text-gradient">donation became.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>

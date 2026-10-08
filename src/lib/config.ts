@@ -5,7 +5,7 @@ export const SITE_NAME = "KindBharat";
 /** Main tagline (chosen after looking at competitor taglines — see CLAUDE.md). */
 export const TAGLINE = "Give directly. See the proof.";
 export const SUB_TAGLINE =
-  "KindBharat is a free fundraising platform for verified Indian NGOs. You pay the NGO directly by UPI or bank — no platform fee, no commission, no cut. Ever.";
+  "Donate directly to a verified NGO for a small, budgeted project — then see the photos and bills of exactly what your money bought. We never touch your money.";
 
 export const SITE_DESCRIPTION =
   "KindBharat lists verified, budgeted social projects by Indian NGOs. Donors pay the NGO directly — the platform never handles money — and every project ends with proof.";
