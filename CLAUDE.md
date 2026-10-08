@@ -22,6 +22,7 @@ Full spec: `SPEC.md` (the agreed plan). This file summarises the rules and decis
 - **Payment details change** → hidden from all projects until admin re-approves (DB trigger `payment_guard`).
 - **Funded projects** keep accepting donations until the deadline ("Goal reached — extra funds help more people").
 - **Tagline:** "Give directly. See the proof." (chosen by Claude after owner asked for something different, referencing competitors; owner may change it in `src/lib/config.ts`).
+- **Home hero (2026-10-09, owner request):** headline “Fundraising that never takes a rupee.” with badge “India's zero-fee fundraising platform”; tagline kept as a line under the intro.
 - **UI:** owner asked for a unique look with animations and 3D effects, still phone-friendly (done with CSS 3D + tiny client components, no animation library; respects reduced-motion).
 - Supabase project `kindbharat` (ref `sqxkxttkckvrldgeetxz`, Mumbai, free) was created by Claude with owner's approval.
 

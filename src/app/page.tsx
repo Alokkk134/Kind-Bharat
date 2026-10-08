@@ -25,7 +25,7 @@ import { ProjectCard } from "@/components/project/project-card";
 import { ButtonLink } from "@/components/ui/button";
 import type { PublicProject } from "@/lib/database.types";
 import { CATEGORIES } from "@/lib/constants";
-import { SUB_TAGLINE } from "@/lib/config";
+import { SUB_TAGLINE, TAGLINE } from "@/lib/config";
 import { getPublicEnv } from "@/lib/env";
 import { todayIST } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
@@ -64,18 +64,19 @@ export default async function HomePage() {
           <div className="relative z-10">
             <Reveal>
               <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 px-3 py-1.5 text-xs font-semibold text-primary shadow-sm backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5 text-accent" /> 0% platform fee · 100% direct to NGO
+                <Sparkles className="h-3.5 w-3.5 text-accent" /> India&apos;s zero-fee fundraising platform
               </p>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-5 font-serif text-[2.75rem] font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-                Give directly.
+                Fundraising that
                 <br />
-                <span className="text-gradient">See the proof.</span>
+                <span className="text-gradient">never takes a&nbsp;rupee.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">{SUB_TAGLINE}</p>
+              <p className="mt-3 font-serif text-lg font-semibold italic text-primary sm:text-xl">{TAGLINE}</p>
             </Reveal>
             <Reveal delay={240}>
               <div className="mt-8 flex flex-wrap gap-3">
