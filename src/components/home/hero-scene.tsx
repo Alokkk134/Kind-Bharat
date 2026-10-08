@@ -8,7 +8,7 @@ const FLOW_PATH = "M28 20 C 28 32, 46 28, 60 36 S 76 58, 46 70";
 
 /**
  * Layered 3D illustration of what KindBharat does:
- * a donor gives → a verified NGO receives & confirms → help reaches people in need (with proof).
+ * a donor donates → a verified NGO receives & confirms → help reaches people in need (with proof).
  */
 export function HeroScene() {
   return (
@@ -40,10 +40,10 @@ export function HeroScene() {
         ))}
       </svg>
 
-      {/* 1 — You give */}
+      {/* 1 — You donate */}
       <div className="absolute left-0 top-0 w-[62%] [transform:translateZ(70px)] sm:w-[56%]">
         <div className="animate-float rounded-[1.5rem] border border-white/70 bg-white/95 p-3.5 shadow-[0_30px_60px_-28px_rgba(15,94,89,0.55)] backdrop-blur">
-          <Step n={1} label="You give" />
+          <Step n={1} label="You donate" />
           <div className="mt-2.5 flex items-center gap-3">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent-ink text-white shadow-lg shadow-accent/30">
               <Smartphone className="h-5 w-5" />
