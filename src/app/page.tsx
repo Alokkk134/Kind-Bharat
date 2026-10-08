@@ -25,7 +25,7 @@ import { ProjectCard } from "@/components/project/project-card";
 import { ButtonLink } from "@/components/ui/button";
 import type { PublicProject } from "@/lib/database.types";
 import { CATEGORIES } from "@/lib/constants";
-import { SUB_TAGLINE, TAGLINE } from "@/lib/config";
+import { SUB_TAGLINE } from "@/lib/config";
 import { getPublicEnv } from "@/lib/env";
 import { todayIST } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
@@ -76,7 +76,6 @@ export default async function HomePage() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-5 max-w-xl text-lg text-muted sm:text-xl">{SUB_TAGLINE}</p>
-              <p className="mt-3 font-serif text-lg font-semibold italic text-primary sm:text-xl">{TAGLINE}</p>
             </Reveal>
             <Reveal delay={240}>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -140,6 +139,59 @@ export default async function HomePage() {
         </Container>
       )}
 
+      {/* ---------- FEATURED PROJECTS ---------- */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <Reveal>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Raising now</p>
+              <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Projects that need you</h2>
+            </Reveal>
+            <ButtonLink href="/projects" variant="outline">See all projects <ArrowRight className="h-4 w-4" /></ButtonLink>
+          </div>
+          {projects.length ? (
+            <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {projects.map((p, i) => (
+                <Reveal as="li" key={p.id} delay={(i % 3) * 100}>
+                  <ProjectCard p={p} />
+                </Reveal>
+              ))}
+            </ul>
+          ) : (
+            <Reveal>
+              <div className="mt-10 rounded-[2rem] border border-dashed border-primary/30 bg-primary-soft/40 p-10 text-center">
+                <HeartHandshake className="mx-auto h-12 w-12 animate-float text-primary" />
+                <p className="mt-4 font-serif text-2xl font-semibold">The first verified projects are on their way</p>
+                <p className="mx-auto mt-2 max-w-md text-muted">
+                  We&apos;re onboarding NGOs and checking their documents. Are you an NGO? Be among the first.
+                </p>
+                <ButtonLink href="/signup?role=ngo" className="mt-6">Register your NGO</ButtonLink>
+              </div>
+            </Reveal>
+          )}
+        </Container>
+      </section>
+
+      {/* ---------- CAUSES ---------- */}
+      <section className="pb-6">
+        <Container>
+          <Reveal>
+            <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:flex-wrap sm:justify-center">
+              {CATEGORIES.map((c) => (
+                <Link
+                  key={c.value}
+                  href={`/projects?cause=${c.value}`}
+                  className="group flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-surface px-4 py-3 font-medium shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-lg"
+                >
+                  <span className="text-2xl transition-transform group-hover:scale-125 group-hover:-rotate-6" aria-hidden>{c.emoji}</span>
+                  {c.label}
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* ---------- HOW IT WORKS ---------- */}
       <section className="relative py-16 sm:py-24">
         <Container>
@@ -175,59 +227,6 @@ export default async function HomePage() {
               </Reveal>
             ))}
           </ol>
-        </Container>
-      </section>
-
-      {/* ---------- CAUSES ---------- */}
-      <section className="pb-6">
-        <Container>
-          <Reveal>
-            <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:flex-wrap sm:justify-center">
-              {CATEGORIES.map((c) => (
-                <Link
-                  key={c.value}
-                  href={`/projects?cause=${c.value}`}
-                  className="group flex shrink-0 items-center gap-2 rounded-2xl border border-border bg-surface px-4 py-3 font-medium shadow-sm transition hover:-translate-y-1 hover:border-primary hover:shadow-lg"
-                >
-                  <span className="text-2xl transition-transform group-hover:scale-125 group-hover:-rotate-6" aria-hidden>{c.emoji}</span>
-                  {c.label}
-                </Link>
-              ))}
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* ---------- FEATURED PROJECTS ---------- */}
-      <section className="py-16 sm:py-20">
-        <Container>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <Reveal>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Raising now</p>
-              <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Projects that need you</h2>
-            </Reveal>
-            <ButtonLink href="/projects" variant="outline">See all projects <ArrowRight className="h-4 w-4" /></ButtonLink>
-          </div>
-          {projects.length ? (
-            <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p, i) => (
-                <Reveal as="li" key={p.id} delay={(i % 3) * 100}>
-                  <ProjectCard p={p} />
-                </Reveal>
-              ))}
-            </ul>
-          ) : (
-            <Reveal>
-              <div className="mt-10 rounded-[2rem] border border-dashed border-primary/30 bg-primary-soft/40 p-10 text-center">
-                <HeartHandshake className="mx-auto h-12 w-12 animate-float text-primary" />
-                <p className="mt-4 font-serif text-2xl font-semibold">The first verified projects are on their way</p>
-                <p className="mx-auto mt-2 max-w-md text-muted">
-                  We&apos;re onboarding NGOs and checking their documents. Are you an NGO? Be among the first.
-                </p>
-                <ButtonLink href="/signup?role=ngo" className="mt-6">Register your NGO</ButtonLink>
-              </div>
-            </Reveal>
-          )}
         </Container>
       </section>
 
