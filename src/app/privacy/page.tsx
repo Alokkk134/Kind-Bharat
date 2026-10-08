@@ -25,7 +25,7 @@ export default function PrivacyPage() {
       </ul>
       <h3>Everyone</h3>
       <ul>
-        <li>Comments, questions and reports you submit.</li>
+        <li>Comments, questions and reports you submit, and feedback you send (with your name/email only if you choose to add them).</li>
         <li>Basic technical logs kept by our hosting providers for security.</li>
       </ul>
 

@@ -74,6 +74,10 @@ export default function HelpPage() {
               <span className="block text-sm text-muted">{CONTACT_EMAIL} — tell us what you were trying to do.</span>
             </span>
           </a>
+          <Link href="/feedback" className="rounded-3xl border border-border bg-surface p-5 transition hover:border-primary sm:col-span-2">
+            <p className="font-semibold">Have an idea or found a problem?</p>
+            <p className="text-sm text-muted">Send feedback — suggest a feature or report a bug.</p>
+          </Link>
         </div>
       </Container>
     </>

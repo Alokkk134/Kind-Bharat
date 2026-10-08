@@ -14,7 +14,7 @@ export const SITE_DESCRIPTION =
  *  Keep in sync with public.proof_grace_days() in the database. */
 export const PROOF_GRACE_DAYS = 30;
 
-export const CONTACT_EMAIL = "hello@kindbharat.org";
+export const CONTACT_EMAIL = "aalok.builds@gmail.com";
 
 export const TIMEZONE = "Asia/Kolkata";
 export const LOCALE = "en-IN";

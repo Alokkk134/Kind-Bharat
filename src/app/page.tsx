@@ -228,7 +228,7 @@ export default async function HomePage() {
         <Container>
           <div className="relative isolate overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-accent-soft via-surface to-primary-soft p-8 sm:p-14">
             <Aurora className="opacity-50" />
-            <div className="grid items-center gap-10 lg:grid-cols-2">
+            <div className="max-w-2xl">
               <Reveal>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">For NGOs & social organisations</p>
                 <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Raise funds for real work. Keep every rupee.</h2>
@@ -245,22 +245,6 @@ export default async function HomePage() {
                 <ButtonLink href="/signup?role=ngo" size="lg" className="mt-8">
                   Register your NGO <ArrowRight className="h-5 w-5" />
                 </ButtonLink>
-              </Reveal>
-              <Reveal delay={150}>
-                <div aria-hidden className="perspective">
-                  <div className="preserve-3d rounded-[2rem] border border-border bg-surface p-5 shadow-2xl transition-transform duration-700 [transform:rotateX(14deg)_rotateY(-16deg)_rotateZ(2deg)] hover:[transform:rotateX(0)_rotateY(0)_rotateZ(0)]">
-                    <p className="text-sm font-semibold">Donations to confirm</p>
-                    {[["₹2,000", "Priya M.", "UTR 4123…"], ["₹500", "Anonymous", "UTR 9981…"], ["₹1,100", "Arjun K.", "UTR 7745…"]].map(([a, n, u], i) => (
-                      <div key={u} className="mt-3 flex items-center justify-between rounded-2xl bg-bg p-3 [transform:translateZ(30px)]" style={{ transitionDelay: `${i * 60}ms` }}>
-                        <div>
-                          <p className="font-serif text-lg font-semibold">{a}</p>
-                          <p className="text-xs text-muted">{n} · {u}</p>
-                        </div>
-                        <span className="rounded-xl bg-success px-3 py-1.5 text-xs font-semibold text-white">✓ Confirm</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </Reveal>
             </div>
           </div>

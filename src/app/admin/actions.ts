@@ -214,3 +214,19 @@ export async function reviewDonationAdminAction(_: ActionState, formData: FormDa
     decision === "confirm" ? "Donation confirmed by KindBharat — it now counts toward the goal." : decision === "reject" ? "Donation rejected." : "Rejection upheld and marked as reviewed.",
   );
 }
+
+// ---------------- Feedback ----------------
+
+export async function reviewFeedbackAction(_: ActionState, formData: FormData): Promise<ActionState> {
+  const supabase = await admin();
+  const parsed = z
+    .object({ id: uuid, status: z.enum(["new", "planned", "done", "dismissed"]), note })
+    .safeParse(Object.fromEntries(formData));
+  if (!parsed.success) return { error: "Invalid request." };
+  const { error } = await supabase
+    .from("feedback")
+    .update({ status: parsed.data.status, ...(parsed.data.note ? { admin_note: parsed.data.note } : {}) })
+    .eq("id", parsed.data.id);
+  if (error) return { error: friendlyError(error) };
+  return done(["/admin/feedback"], "Feedback updated.");
+}

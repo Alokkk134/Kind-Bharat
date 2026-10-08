@@ -5,6 +5,7 @@ import {
   FolderKanban,
   Gauge,
   IndianRupee,
+  Lightbulb,
   MessagesSquare,
   Wallet,
 } from "lucide-react";
@@ -28,6 +29,7 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
         { href: "/admin/proofs", label: "Completion proofs", icon: <Camera />, badge: n.proofs },
         { href: "/admin/reports", label: "Reports", icon: <Flag />, badge: n.reports },
         { href: "/admin/comments", label: "Comments", icon: <MessagesSquare /> },
+        { href: "/admin/feedback", label: "Feedback", icon: <Lightbulb />, badge: n.feedbackNew },
       ]}
     >
       {children}

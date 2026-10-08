@@ -19,6 +19,8 @@ export type ReviewStatus = "pending" | "approved" | "rejected";
 export type ReportStatus = "open" | "reviewed" | "action_taken" | "dismissed";
 export type ReportReason = "fake_scam" | "wrong_info" | "misuse_of_funds" | "inappropriate" | "other";
 export type ReportTarget = "project" | "ngo";
+export type FeedbackKind = "feature" | "bug" | "other";
+export type FeedbackStatus = "new" | "planned" | "done" | "dismissed";
 
 export type Profile = {
   id: string;
@@ -195,6 +197,20 @@ export type PastProject = {
   created_at: string;
 };
 
+export type Feedback = {
+  id: string;
+  user_id: string | null;
+  kind: FeedbackKind;
+  message: string;
+  name: string | null;
+  email: string | null;
+  page: string | null;
+  status: FeedbackStatus;
+  admin_note: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
 export type PublicNgo = {
   id: string;
   name: string;
@@ -290,6 +306,7 @@ export type Database = {
       reports: T<Report>;
       completion_proofs: T<CompletionProof>;
       past_projects: T<PastProject>;
+      feedback: T<Feedback>;
     };
     Views: {
       public_ngos: V<PublicNgo>;

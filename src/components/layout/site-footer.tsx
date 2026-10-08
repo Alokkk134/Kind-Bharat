@@ -17,6 +17,7 @@ const COLUMNS = [
     links: [
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
+      { href: "/feedback", label: "Send feedback" },
       { href: "/signup", label: "Register your NGO" },
     ],
   },

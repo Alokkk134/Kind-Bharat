@@ -13,7 +13,7 @@ export default function ContactPage() {
         <a href={`mailto:${CONTACT_EMAIL}`} className="flex gap-3 rounded-3xl border border-border bg-surface p-5 no-underline transition hover:-translate-y-1 hover:shadow-xl">
           <Mail className="h-6 w-6 shrink-0 text-primary" />
           <span>
-            <span className="block font-semibold text-ink">Email us</span>
+            <span className="block font-semibold text-ink">Contact admin</span>
             <span className="block text-sm text-primary">{CONTACT_EMAIL}</span>
           </span>
         </a>
