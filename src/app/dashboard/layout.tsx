@@ -1,4 +1,4 @@
-import { HandHeart, Search, UserRound } from "lucide-react";
+import { HandHeart, LifeBuoy, Search, UserRound } from "lucide-react";
 import { DashShell } from "@/components/dashboard/dash-shell";
 import { requireRole } from "@/lib/auth";
 
@@ -12,6 +12,7 @@ export default async function DonorLayout({ children }: LayoutProps<"/dashboard"
         { href: "/dashboard", label: "My donations", icon: <HandHeart />, exact: true },
         { href: "/dashboard/profile", label: "My profile", icon: <UserRound /> },
         { href: "/projects", label: "Find projects", icon: <Search /> },
+        { href: "/help/donors", label: "Help guide", icon: <LifeBuoy /> },
       ]}
     >
       {children}

@@ -5,6 +5,7 @@ import {
   History,
   IndianRupee,
   LayoutDashboard,
+  LifeBuoy,
   MessagesSquare,
   Wallet,
 } from "lucide-react";
@@ -46,6 +47,7 @@ export default async function NgoLayout({ children }: LayoutProps<"/ngo">) {
         { href: "/ngo/donations", label: "Donations", icon: <IndianRupee />, badge: pendingDonations },
         { href: "/ngo/comments", label: "Questions", icon: <MessagesSquare /> },
         { href: "/ngo/past-projects", label: "Past projects", icon: <History /> },
+        { href: "/help/ngos", label: "Help guide", icon: <LifeBuoy /> },
       ]}
     >
       {children}
