@@ -16,7 +16,7 @@ const DONOR_FAQ: [string, React.ReactNode][] = [
   ["Does KindBharat take any fee or commission?", "No. KindBharat never receives your money and charges nothing to donors or NGOs. You pay the NGO directly."],
   [
     "How do I know an NGO is genuine?",
-    "Before an NGO can publish anything, our team checks its registration certificate and other documents (like PAN, 12A, 80G, FCRA, NGO Darpan). Every single project is also approved by hand. Still, please do your own checks too — see our Disclaimer.",
+    "Before an NGO can publish anything, our team checks its registration certificate and other documents (like PAN, 12A, 80G, FCRA, NGO Darpan). Our team also approves every project. Still, please do your own checks too — see our Disclaimer.",
   ],
   [
     "How do I donate?",
@@ -36,7 +36,7 @@ const DONOR_FAQ: [string, React.ReactNode][] = [
   ],
   ["Will I get an 80G tax receipt?", "80G receipts are issued by the NGO, not by KindBharat. Look for the 80G badge, and contact the NGO with your UTR number and PAN."],
   ["Is my information public?", "No. Only your first name and last initial (e.g. “Rahul S.”) or “Anonymous” is shown, with the amount. Your email, phone, UTR and screenshot are visible only to that NGO and our team."],
-  ["Can donors outside India give?", "Not for now. KindBharat is for donors in India. NGOs need FCRA registration to accept foreign money."],
+  ["Can donors outside India donate?", "Not for now. KindBharat is for donors in India. NGOs need FCRA registration to accept foreign money."],
   ["What if a project looks wrong?", "Use “Report this project” on the project page. Our team reviews every report and can pause or remove projects and suspend NGOs."],
   ["Do I need an account?", "No — you can donate as a guest. An account lets you ask questions, report problems and see your donation history."],
 ];
@@ -48,7 +48,7 @@ const NGO_FAQ: [string, React.ReactNode][] = [
   ["What makes a good project?", "Small, specific and measurable: “Stationery kits for 100 students — ₹25,000” with a clear item-by-item budget and real photos."],
   ["Do I have to confirm every donation?", "Yes. Check your bank/UPI statement for each UTR and press Confirm or “Not received”. Only confirmed donations count toward your goal."],
   ["What happens after the project?", `Submit proof — photos, a description, number of people reached, and bills if you have them. Our team reviews it and marks the project “Completed with proof”. If proof isn't submitted within ${PROOF_GRACE_DAYS} days after the deadline or reaching the goal, you can't create new projects until you submit it.`],
-  ["Can donors keep giving after the goal is reached?", "Yes, until the deadline. The page shows “Goal reached — extra funds help more people”."],
+  ["Can people still donate after the goal is reached?", "Yes, until the deadline. The page shows “Goal reached — extra funds help more people”."],
   ["Can I add work we did before joining?", "Yes, under “Past projects”. These are clearly labelled “Self-reported (before joining)” so donors can tell them apart from verified ones."],
 ];
 
@@ -92,10 +92,10 @@ export default function HowItWorksPage() {
       <Container className="py-14">
         <ol className="relative mx-auto max-w-3xl space-y-8 before:absolute before:left-6 before:top-2 before:h-[calc(100%-1rem)] before:w-0.5 before:bg-gradient-to-b before:from-primary before:via-accent before:to-success">
           {[
-            ["NGO applies", "Fills its profile and uploads registration documents. Our team verifies them by hand."],
+            ["NGO applies", "The NGO fills its profile and uploads its registration documents. Our team checks them."],
             ["Project approved", "The NGO posts a specific project with an item-by-item budget. We approve every one before it goes live."],
-            ["You give directly", "You pay the NGO's own UPI or bank account and submit your UTR. Zero fees."],
-            ["NGO confirms", "The NGO checks its statement and confirms. Only confirmed gifts count toward the goal."],
+            ["You donate directly", "You pay to the NGO's own UPI or bank account and share your UTR number. No fees."],
+            ["NGO confirms", "The NGO checks its bank statement and confirms. Only confirmed donations count toward the goal."],
             ["Proof is posted", "When the work is done, the NGO uploads photos, bills and results. We review them before marking it complete."],
           ].map(([t, d], i) => (
             <Reveal as="li" key={t} delay={i * 80} className="relative pl-16">

@@ -13,7 +13,7 @@ import { GoogleButton, AuthDivider } from "@/components/auth/google-button";
 import { signUpAction } from "../actions";
 
 const ROLES = [
-  { value: "donor", title: "I want to donate", text: "Give to verified projects", icon: HeartHandshake },
+  { value: "donor", title: "I want to donate", text: "Donate to verified projects", icon: HeartHandshake },
   { value: "ngo", title: "I represent an NGO", text: "Post projects, receive help", icon: Building2 },
 ] as const;
 

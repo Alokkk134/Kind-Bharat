@@ -37,7 +37,7 @@ export default async function DonorDashboard({ searchParams }: PageProps<"/dashb
   return (
     <>
       <PageHeader
-        eyebrow="Your giving"
+        eyebrow="Donor dashboard"
         title="My donations"
         description="Donations you submitted while logged in. The NGO confirms each one after checking their account."
         actions={<ButtonLink href="/projects">Find a project</ButtonLink>}

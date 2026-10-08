@@ -44,7 +44,7 @@ const schema = z
     is_anonymous: z.literal("on").optional().transform(Boolean),
   })
   .refine((v) => v.donor_email || v.donor_phone, {
-    message: "Give an email or a phone number so the NGO can contact you",
+    message: "Enter an email or a phone number so the NGO can contact you",
     path: ["donor_email"],
   });
 

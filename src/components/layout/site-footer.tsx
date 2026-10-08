@@ -4,7 +4,7 @@ import { Logo } from "./logo";
 
 const COLUMNS = [
   {
-    title: "Give",
+    title: "Donate",
     links: [
       { href: "/projects", label: "Browse projects" },
       { href: "/ngos", label: "Browse NGOs" },

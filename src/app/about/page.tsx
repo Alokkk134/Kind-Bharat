@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/layout/content-page";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Why KindBharat exists: verified, direct, transparent giving to Indian NGOs — with no fees.",
+  description: "Why KindBharat exists: direct, transparent donations to verified Indian NGOs — with no fees.",
 };
 
 export default function AboutPage() {
@@ -12,13 +12,13 @@ export default function AboutPage() {
     <ContentPage
       eyebrow="About KindBharat"
       title="Small help, real change — with proof."
-      intro="KindBharat is a non-profit listing platform. We help people give directly to verified NGOs, and help good NGOs earn trust."
+      intro="KindBharat is a free, non-profit platform. We help people donate directly to verified NGOs, and help honest NGOs earn trust."
     >
       <h2>Why we built this</h2>
       <p>
-        Many people want to help but hold back because they can&apos;t tell which appeals are genuine, or where their money
-        really goes. Many honest grassroots NGOs, meanwhile, struggle to be seen. KindBharat sits in between — not as a
-        middleman for money, but as a <strong>trust layer</strong>.
+        Many people want to help but hold back. They can&apos;t tell which appeals are genuine, or where their money
+        really goes. At the same time, many honest small NGOs struggle to be seen. KindBharat connects the two. We
+        never handle the money — we <strong>check the NGO, approve the project and show the proof</strong>.
       </p>
       <h2>What we do</h2>
       <ul>

@@ -3,7 +3,7 @@
 export const SITE_NAME = "KindBharat";
 
 /** Main tagline (chosen after looking at competitor taglines — see CLAUDE.md). */
-export const TAGLINE = "Give directly. See the proof.";
+export const TAGLINE = "Donate directly. See the proof.";
 export const SUB_TAGLINE =
   "Donate directly to a verified NGO for a small, budgeted project — then see the photos and bills of exactly what your money bought. We never touch your money.";
 

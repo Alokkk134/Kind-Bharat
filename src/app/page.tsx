@@ -5,7 +5,6 @@ import {
   Building2,
   Camera,
   EyeOff,
-  FileSearch,
   HandCoins,
   HeartHandshake,
   Lock,
@@ -15,7 +14,6 @@ import {
   Wallet,
 } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { FlipStep } from "@/components/home/flip-step";
 import { HeroScene } from "@/components/home/hero-scene";
 import { CountUp } from "@/components/motion/count-up";
 import { Aurora, Marquee, Petals } from "@/components/motion/decor";
@@ -106,11 +104,11 @@ export default async function HomePage() {
         <Marquee>
           {[
             "✦ Zero platform fees",
-            "✦ Every NGO verified by hand",
+            "✦ Every NGO checked by our team",
             "✦ Every project approved",
             "✦ Money goes straight to the NGO",
-            "✦ Proof of completion, always",
-            "✦ Payment-detail changes re-checked",
+            "✦ Proof for every project",
+            "✦ UPI/bank changes re-checked",
             "✦ Your data stays private",
           ].map((t) => (
             <span key={t} className="whitespace-nowrap px-4 font-serif text-lg italic text-white/90">{t}</span>
@@ -163,7 +161,7 @@ export default async function HomePage() {
                 <HeartHandshake className="mx-auto h-12 w-12 animate-float text-primary" />
                 <p className="mt-4 font-serif text-2xl font-semibold">The first verified projects are on their way</p>
                 <p className="mx-auto mt-2 max-w-md text-muted">
-                  We&apos;re onboarding NGOs and checking their documents. Are you an NGO? Be among the first.
+                  We are adding NGOs and checking their documents. Are you an NGO? Join early.
                 </p>
                 <ButtonLink href="/signup?role=ngo" className="mt-6">Register your NGO</ButtonLink>
               </div>
@@ -192,44 +190,6 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* ---------- HOW IT WORKS ---------- */}
-      <section className="relative py-16 sm:py-24">
-        <Container>
-          <Reveal>
-            <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">How it works</p>
-            <h2 className="mx-auto mt-2 max-w-2xl text-center font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-              Three simple steps. <span className="text-gradient">Zero middlemen.</span>
-            </h2>
-          </Reveal>
-          <ol className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: <FileSearch />,
-                title: "Find a verified project",
-                front: "Small, specific, budgeted projects by NGOs whose documents we've checked.",
-                back: ["Registration certificate checked", "Every project approved by hand", "Full budget, item by item", "Report anything suspicious"],
-              },
-              {
-                icon: <HandCoins />,
-                title: "Pay the NGO directly",
-                front: "Use the NGO's own UPI or bank account. We never touch your money.",
-                back: ["UPI, QR or bank transfer", "No platform fee, ever", "Submit your UTR so the NGO can confirm", "80G receipt comes from the NGO"],
-              },
-              {
-                icon: <Camera />,
-                title: "See the proof",
-                front: "The NGO confirms your gift, then posts photos and results when the work is done.",
-                back: ["Only confirmed gifts count", "Photos, bills & people reached", "Reviewed by our team", "NGOs blocked if proof is overdue"],
-              },
-            ].map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 120}>
-                <FlipStep n={i + 1} {...s} />
-              </Reveal>
-            ))}
-          </ol>
-        </Container>
-      </section>
-
       {/* ---------- TRUST ---------- */}
       <section className="relative isolate overflow-hidden bg-primary-deep py-20 text-white sm:py-28">
         <div aria-hidden className="absolute inset-0 -z-10 opacity-40 [background:radial-gradient(60rem_30rem_at_10%_0%,#138a7f,transparent),radial-gradient(40rem_30rem_at_100%_100%,rgba(224,138,30,.45),transparent)]" />
@@ -237,15 +197,15 @@ export default async function HomePage() {
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why people trust us</p>
             <h2 className="mt-2 max-w-2xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-              Trust isn&apos;t a feature here. <span className="italic text-accent">It&apos;s the product.</span>
+              Built so you can <span className="italic text-accent">trust every rupee.</span>
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: ShieldCheck, t: "Verified NGOs", d: "Registration, PAN, 12A/80G and FCRA documents checked by a person — not a bot." },
-              { icon: HandCoins, t: "We never hold money", d: "No wallet, no gateway. You pay the NGO's own account. Zero fees, zero commissions." },
-              { icon: Lock, t: "Anti-scam guard", d: "If an NGO changes its UPI or bank details, they're hidden until we re-check them." },
-              { icon: EyeOff, t: "Privacy first", d: "Your email, phone, UTR and screenshots are never public. Only “Rahul S.” or Anonymous." },
+              { icon: ShieldCheck, t: "Verified NGOs", d: "Our team checks each NGO's registration, PAN, 12A/80G and FCRA documents." },
+              { icon: HandCoins, t: "We never hold money", d: "You pay the NGO's own account directly. No fees. No commission." },
+              { icon: Lock, t: "Anti-scam guard", d: "If an NGO changes its UPI or bank details, we hide them until we check again." },
+              { icon: EyeOff, t: "Privacy first", d: "Your email, phone, UTR and screenshot stay private. Others see only “Rahul S.” or “Anonymous”." },
             ].map(({ icon: Icon, t, d }, i) => (
               <Reveal as="li" key={t} delay={i * 90}>
                 <Tilt className="rounded-[2rem]">
@@ -276,7 +236,7 @@ export default async function HomePage() {
                   {[
                     "Free forever — no listing fee, no commission",
                     "Donations land directly in your UPI / bank account",
-                    "A public profile that builds trust with every completed project",
+                    "A public profile that grows with every completed project",
                     "Simple dashboard to confirm donations and answer questions",
                   ].map((t) => (
                     <li key={t} className="flex gap-2"><BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" /> {t}</li>
