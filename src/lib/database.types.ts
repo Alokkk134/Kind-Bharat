@@ -54,6 +54,7 @@ export type Ngo = {
   has_12a: boolean;
   has_80g: boolean;
   has_fcra: boolean;
+  is_demo: boolean;
   submitted_at: string | null;
   verified_at: string | null;
   created_at: string;
@@ -216,6 +217,7 @@ export type PublicNgo = {
   total_raised: number;
   active_projects: number;
   completed_projects: number;
+  is_demo: boolean;
 };
 
 export type PublicProject = {
@@ -245,6 +247,7 @@ export type PublicProject = {
   raised: number;
   donor_count: number;
   cover_path: string | null;
+  ngo_is_demo: boolean;
 };
 
 export type PublicDonation = {

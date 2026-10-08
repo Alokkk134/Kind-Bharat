@@ -97,6 +97,7 @@ export default async function NgosPage({ searchParams }: PageProps<"/ngos">) {
                       <div className="min-w-0">
                         <p className="font-serif text-lg font-semibold leading-tight">{n.name}</p>
                         <p className="mt-0.5 flex items-center gap-1 text-xs font-semibold text-success"><BadgeCheck className="h-4 w-4" /> Verified NGO</p>
+                        {n.is_demo && <p className="mt-1 text-xs font-semibold text-accent-ink">Sample · for reference only</p>}
                       </div>
                     </div>
                     <p className="mt-4 line-clamp-3 text-sm text-muted">{n.about}</p>

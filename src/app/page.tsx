@@ -41,8 +41,8 @@ async function getHomeData() {
       .gte("deadline", todayIST())
       .order("approved_at", { ascending: false })
       .limit(6),
-    supabase.from("public_ngos").select("total_raised"),
-    supabase.from("public_projects").select("id", { count: "exact", head: true }).eq("status", "completed"),
+    supabase.from("public_ngos").select("total_raised").eq("is_demo", false),
+    supabase.from("public_projects").select("id", { count: "exact", head: true }).eq("status", "completed").eq("ngo_is_demo", false),
   ]);
   const raised = (ngos ?? []).reduce((s, n) => s + n.total_raised, 0);
   return {

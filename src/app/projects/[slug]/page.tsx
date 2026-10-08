@@ -16,6 +16,7 @@ import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { Comments } from "@/components/project/comments";
 import { Gallery } from "@/components/project/gallery";
+import { SampleNotice } from "@/components/project/sample-notice";
 import { ReportButton } from "@/components/project/report-button";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
     description: `${p.summary} By ${p.ngo_name}, ${p.city}. Verified on KindBharat — pay the NGO directly.`,
     alternates: { canonical: `/projects/${p.slug}` },
     openGraph: { title, description: p.summary, type: "article", url: `/projects/${p.slug}` },
+    ...(p.ngo_is_demo ? { robots: { index: false } } : {}),
   };
 }
 
@@ -85,6 +87,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <Container className="py-8 sm:py-12">
+        {p.ngo_is_demo && <SampleNotice what="project" />}
         <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted">
           <Link href="/projects" className="hover:text-primary">Projects</Link> /{" "}
           <Link href={`/projects?cause=${p.category}`} className="hover:text-primary">{categoryLabel(p.category)}</Link>
@@ -118,7 +121,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
             {/* Mobile funding card */}
             <div className="lg:hidden">
-              <FundingCard p={p} pct={pct} left={left} accepting={accepting} completed={completed} shareText={shareText} />
+              <FundingCard p={p} pct={pct} left={left} accepting={accepting} completed={completed} shareText={shareText} isDemo={p.ngo_is_demo} />
             </div>
 
             {completed && proof && (
@@ -230,7 +233,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
           {/* Sidebar */}
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             <div className="hidden lg:block">
-              <FundingCard p={p} pct={pct} left={left} accepting={accepting} completed={completed} shareText={shareText} />
+              <FundingCard p={p} pct={pct} left={left} accepting={accepting} completed={completed} shareText={shareText} isDemo={p.ngo_is_demo} />
             </div>
             {ngo && (
               <Card className="!p-5">
@@ -276,12 +279,14 @@ function FundingCard({
   accepting,
   completed,
   shareText,
+  isDemo,
 }: {
   p: { slug: string; raised: number; goal_amount: number; donor_count: number; status: string };
   pct: number;
   left: number | null;
   accepting: boolean;
   completed: boolean;
+  isDemo?: boolean;
   shareText: string;
 }) {
   return (
@@ -312,7 +317,11 @@ function FundingCard({
           </>
         ) : (
           <p className="rounded-2xl bg-stone-100 p-3 text-center text-sm text-muted">
-            {completed ? "This project is complete. Thank you, donors!" : "This project isn't accepting donations right now."}
+            {isDemo
+              ? "Sample project — donations are disabled. Browse real projects to donate."
+              : completed
+                ? "This project is complete. Thank you, donors!"
+                : "This project isn't accepting donations right now."}
           </p>
         )}
         <a

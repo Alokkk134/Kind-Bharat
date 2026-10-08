@@ -7,6 +7,7 @@ import { Aurora } from "@/components/motion/decor";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/project/project-card";
 import { ReportButton } from "@/components/project/report-button";
+import { SampleNotice } from "@/components/project/sample-notice";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/ngos/[slug]">): P
     description: `${(n.about ?? "").slice(0, 150)} Verified on KindBharat.`,
     alternates: { canonical: `/ngos/${n.slug}` },
     openGraph: { images: n.logo_path ? [publicUrl("ngo-logos", n.logo_path)!] : undefined },
+    ...(n.is_demo ? { robots: { index: false } } : {}),
   };
 }
 
@@ -69,6 +71,7 @@ export default async function NgoProfilePage({ params }: PageProps<"/ngos/[slug]
             <div>
               <div className="flex flex-wrap gap-2">
                 <Badge tone="success"><BadgeCheck className="h-3.5 w-3.5" /> Verified NGO</Badge>
+                {n.is_demo && <Badge tone="accent">Sample · for reference only</Badge>}
                 {n.has_80g && <Badge tone="info">80G</Badge>}
                 {n.has_12a && <Badge tone="info">12A</Badge>}
                 {n.has_fcra && <Badge tone="info">FCRA</Badge>}
@@ -99,6 +102,7 @@ export default async function NgoProfilePage({ params }: PageProps<"/ngos/[slug]
 
       <Container className="grid gap-10 py-10 lg:grid-cols-[1fr_320px]">
         <div className="min-w-0 space-y-12">
+          {n.is_demo && <SampleNotice what="NGO" />}
           <Reveal>
             <section>
               <h2 className="font-serif text-2xl font-semibold">About</h2>

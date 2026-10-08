@@ -35,7 +35,11 @@ export function ProjectCard({ p, priority }: { p: PublicProject; priority?: bool
           <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-ink shadow backdrop-blur [transform:translateZ(40px)]">
             {categoryEmoji(p.category)} {categoryLabel(p.category)}
           </span>
-          {completed ? (
+          {p.ngo_is_demo ? (
+            <span className="absolute right-3 top-3 rounded-full bg-ink/85 px-2.5 py-1 text-xs font-semibold text-white shadow">
+              Sample · for reference only
+            </span>
+          ) : completed ? (
             <span className="absolute right-3 top-3 rounded-full bg-success px-2.5 py-1 text-xs font-semibold text-white shadow">
               ✓ Completed with proof
             </span>
