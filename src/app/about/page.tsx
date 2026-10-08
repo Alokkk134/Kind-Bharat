@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <ContentPage
       eyebrow="About KindBharat"
-      title="Small help, real change — with proof."
+      title="Transparent, direct donations to verified NGOs."
       intro="KindBharat is a free, non-profit platform. We help people donate directly to verified NGOs, and help honest NGOs earn trust."
     >
       <h2>Why we built this</h2>

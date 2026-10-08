@@ -29,11 +29,11 @@ export async function sendFeedbackAction(_: ActionState, formData: FormData): Pr
   const parsed = schema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) return zodErrors(parsed.error);
   const { website, ...values } = parsed.data;
-  if (website) return { ok: true, message: "Thank you! Your feedback has been sent." }; // silently drop bots
+  if (website) return { ok: true, message: "Your feedback has been submitted." }; // silently drop bots
 
   const supabase = await createClient();
   const { error } = await supabase.from("feedback").insert(values);
   if (error) return { error: friendlyError(error) };
   revalidatePath("/admin", "layout");
-  return { ok: true, message: "Thank you! Your feedback has been sent to the KindBharat team." };
+  return { ok: true, message: "Your feedback has been submitted to the KindBharat team." };
 }

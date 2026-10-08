@@ -19,10 +19,10 @@ export default async function FeedbackPage({ searchParams }: PageProps<"/feedbac
       <section className="relative isolate overflow-hidden border-b border-border">
         <Aurora className="opacity-60" />
         <Container className="py-12 sm:py-16">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Feedback</p>
-          <h1 className="mt-2 max-w-2xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">Help us make KindBharat better</h1>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Help improve KindBharat</p>
+          <h1 className="mt-2 max-w-2xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">Feedback</h1>
           <p className="mt-3 max-w-xl text-lg text-muted">
-            Have an idea for a new feature? Found something broken? Tell us — it goes straight to our team.
+            Suggest a new feature, report a problem, or share any other feedback. All submissions are reviewed by our team.
           </p>
         </Container>
       </section>

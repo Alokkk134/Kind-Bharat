@@ -40,7 +40,7 @@ export default async function ProofPage({ params }: PageProps<"/ngo/projects/[id
       />
       {proof?.status === "rejected" && <Alert kind="error" title="Changes requested" className="mb-6">{proof.admin_note}</Alert>}
       {proof?.status === "pending" && <Alert kind="info" className="mb-6">Your proof is under review. We&apos;ll update the project when it&apos;s approved.</Alert>}
-      {proof?.status === "approved" && <Alert kind="success" className="mb-6">Approved! Your project is marked “Completed with proof”. 🎉</Alert>}
+      {proof?.status === "approved" && <Alert kind="success" className="mb-6">Approved. Your project is marked “Completed with proof”.</Alert>}
 
       {canSubmit ? (
         <Card>

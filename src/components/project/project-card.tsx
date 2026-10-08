@@ -45,7 +45,7 @@ export function ProjectCard({ p, priority }: { p: PublicProject; priority?: bool
             </span>
           ) : p.status === "funded" ? (
             <span className="absolute right-3 top-3 rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-white shadow">
-              🎉 Goal reached
+              Goal reached
             </span>
           ) : null}
           <span className="absolute bottom-3 left-3 flex items-center gap-1 text-xs font-medium text-white">

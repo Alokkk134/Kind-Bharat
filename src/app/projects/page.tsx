@@ -73,9 +73,9 @@ export default async function ProjectsPage({ searchParams }: PageProps<"/project
       <section className="relative isolate overflow-hidden border-b border-border">
         <Aurora className="opacity-60" />
         <Container className="py-10 sm:py-14">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Verified projects</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Projects</p>
           <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-            Find a cause <span className="text-gradient">close to your heart</span>
+            Browse <span className="text-gradient">verified projects</span>
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
             Every project here is approved by our team and run by a verified NGO. You pay the NGO directly.

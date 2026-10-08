@@ -224,7 +224,7 @@ export default function NgoGuidePage() {
       </div>
 
       <div className="mt-6 flex flex-col items-start gap-3 rounded-3xl bg-primary-soft p-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-semibold">Ready to start? Registration is free.</p>
+        <p className="font-semibold">Registration is free for all NGOs.</p>
         <ButtonLink href="/signup?role=ngo">Register your NGO</ButtonLink>
       </div>
       <p className="mt-6 text-sm text-muted">

@@ -44,7 +44,7 @@ export function CommentForm({
       />
       {state.fieldErrors?.body && <p className="text-xs text-danger">{state.fieldErrors.body}</p>}
       <div className="flex items-center justify-between gap-3">
-        <p className="text-xs text-muted">Be kind. Max 5 comments per hour.</p>
+        <p className="text-xs text-muted">Please keep questions respectful. Limit: 5 per hour.</p>
         <SubmitButton size="sm" pendingText="Posting…">{parentId ? "Reply as NGO" : "Post question"}</SubmitButton>
       </div>
       {(state.error || state.message) && <FormMessage state={state} />}

@@ -10,9 +10,9 @@ export default function NotFound() {
       <span className="relative flex h-20 w-20 animate-float items-center justify-center rounded-[1.75rem] bg-primary text-white shadow-2xl shadow-primary/40">
         <Compass className="h-10 w-10" />
       </span>
-      <h1 className="relative mt-6 font-serif text-4xl font-semibold">This page wandered off</h1>
+      <h1 className="relative mt-6 font-serif text-4xl font-semibold">Page not found</h1>
       <p className="relative mt-2 max-w-md text-muted">
-        It may have been moved, or the project is no longer public. Let&apos;s get you back on track.
+        The page may have moved, or the project is no longer public.
       </p>
       <div className="relative mt-8 flex flex-wrap justify-center gap-3">
         <ButtonLink href="/">Home</ButtonLink>

@@ -34,7 +34,7 @@ export default async function AdminNgos({ searchParams }: PageProps<"/admin/ngos
       <PageHeader eyebrow="Queue" title="NGO verification" description="Open an NGO to view its documents and approve or reject it." />
       <FilterTabs base="/admin/ngos" current={status} tabs={TABS} />
       {!ngos?.length ? (
-        <EmptyState icon={<Building2 className="h-7 w-7" />} title="Nothing here">All caught up.</EmptyState>
+        <EmptyState icon={<Building2 className="h-7 w-7" />} title="No NGOs in this list" />
       ) : (
         <ul className="space-y-3">
           {ngos.map((n) => (

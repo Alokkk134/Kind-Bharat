@@ -143,7 +143,7 @@ export default async function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <Reveal>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Raising now</p>
-              <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Projects that need you</h2>
+              <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Projects raising funds now</h2>
             </Reveal>
             <ButtonLink href="/projects" variant="outline">See all projects <ArrowRight className="h-4 w-4" /></ButtonLink>
           </div>
@@ -161,7 +161,7 @@ export default async function HomePage() {
                 <HeartHandshake className="mx-auto h-12 w-12 animate-float text-primary" />
                 <p className="mt-4 font-serif text-2xl font-semibold">The first verified projects are on their way</p>
                 <p className="mx-auto mt-2 max-w-md text-muted">
-                  We are adding NGOs and checking their documents. Are you an NGO? Join early.
+                  We are verifying NGOs and their documents. NGOs can register now.
                 </p>
                 <ButtonLink href="/signup?role=ngo" className="mt-6">Register your NGO</ButtonLink>
               </div>
@@ -197,7 +197,7 @@ export default async function HomePage() {
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Why people trust us</p>
             <h2 className="mt-2 max-w-2xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-              Built so you can <span className="italic text-accent">trust every rupee.</span>
+              Why donors <span className="italic text-accent">trust KindBharat</span>
             </h2>
           </Reveal>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -231,7 +231,7 @@ export default async function HomePage() {
             <div className="max-w-2xl">
               <Reveal>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">For NGOs & social organisations</p>
-                <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Raise funds for real work. Keep every rupee.</h2>
+                <h2 className="mt-2 font-serif text-4xl font-semibold tracking-tight">Raise funds directly, with no fees.</h2>
                 <ul className="mt-6 space-y-3 text-muted">
                   {[
                     "Free forever — no listing fee, no commission",

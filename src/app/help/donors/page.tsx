@@ -170,7 +170,7 @@ export default function DonorGuidePage() {
       </div>
 
       <div className="mt-6 flex flex-col items-start gap-3 rounded-3xl bg-primary-soft p-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-semibold">Ready? Find a project that matters to you.</p>
+        <p className="font-semibold">Browse verified projects to make a donation.</p>
         <ButtonLink href="/projects">Browse projects</ButtonLink>
       </div>
       <p className="mt-6 text-sm text-muted">

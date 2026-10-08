@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, Clock, FileCheck2, PartyPopper, ShieldCheck, Wallet } from "lucide-react";
+import { ArrowRight, Check, Clock, FileCheck2, ShieldCheck, Wallet } from "lucide-react";
 import { Alert } from "@/components/ui/alert";
 import { ButtonLink } from "@/components/ui/button";
 import { Card, PageHeader } from "@/components/ui/card";
@@ -141,7 +141,7 @@ export default async function NgoOverview({ searchParams }: PageProps<"/ngo">) {
             </p>
           ) : ngo.status === "verified" ? (
             <p className="flex items-center gap-2 text-sm text-success">
-              <PartyPopper className="h-4 w-4" /> You&apos;re verified! Your “Verified NGO” badge is live.
+              <ShieldCheck className="h-4 w-4" /> Your NGO is verified. The “Verified NGO” badge is now shown on your profile.
             </p>
           ) : null}
         </div>

@@ -158,7 +158,7 @@ export default async function AdminDonations({ searchParams }: PageProps<"/admin
 
       {!rows.length ? (
         <EmptyState icon={<IndianRupee className="h-7 w-7" />} title="Nothing here">
-          {status === "to_review" ? "No rejected donations are waiting for your check. 👍" : "No donations match."}
+          {status === "to_review" ? "No rejected donations are waiting for review." : "No donations match."}
         </EmptyState>
       ) : (
         <ul className="space-y-4">

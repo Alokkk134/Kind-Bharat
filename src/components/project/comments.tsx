@@ -43,7 +43,7 @@ export function Comments({
         ))}
 
       {!top.length ? (
-        <p className="text-sm text-muted">No questions yet. Curious about something? Ask!</p>
+        <p className="text-sm text-muted">No questions yet.</p>
       ) : (
         <ul className="space-y-4">
           {top.map((c) => (

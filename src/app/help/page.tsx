@@ -70,13 +70,13 @@ export default function HelpPage() {
           <a href={`mailto:${CONTACT_EMAIL}`} className="flex gap-3 rounded-3xl border border-border bg-surface p-5 transition hover:border-primary">
             <Mail className="h-6 w-6 shrink-0 text-primary" />
             <span>
-              <span className="block font-semibold">Still stuck? Email us</span>
+              <span className="block font-semibold">Need more help? Contact admin</span>
               <span className="block text-sm text-muted">{CONTACT_EMAIL} — tell us what you were trying to do.</span>
             </span>
           </a>
           <Link href="/feedback" className="rounded-3xl border border-border bg-surface p-5 transition hover:border-primary sm:col-span-2">
-            <p className="font-semibold">Have an idea or found a problem?</p>
-            <p className="text-sm text-muted">Send feedback — suggest a feature or report a bug.</p>
+            <p className="font-semibold">Suggest a feature or report a problem</p>
+            <p className="text-sm text-muted">Use the feedback form.</p>
           </Link>
         </div>
       </Container>

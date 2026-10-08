@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                 <Badge tone="success"><ShieldCheck className="h-3.5 w-3.5" /> Verified Project</Badge>
                 <Badge tone="accent">{categoryEmoji(p.category)} {categoryLabel(p.category)}</Badge>
                 {completed && <Badge tone="success">✓ Completed with proof</Badge>}
-                {p.status === "funded" && <Badge tone="accent">🎉 Goal reached</Badge>}
+                {p.status === "funded" && <Badge tone="accent">Goal reached</Badge>}
                 {p.status === "proof_submitted" && <Badge tone="info">Proof under review</Badge>}
               </div>
               <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">{p.title}</h1>
@@ -200,7 +200,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                 </h2>
                 <p className="mt-1 text-sm text-muted">Only donations the NGO has confirmed receiving are shown and counted.</p>
                 {!donations.length ? (
-                  <p className="mt-4 text-sm text-muted">No confirmed donations yet. Be the first!</p>
+                  <p className="mt-4 text-sm text-muted">No confirmed donations yet.</p>
                 ) : (
                   <ul className="mt-4 divide-y divide-border rounded-3xl border border-border bg-surface">
                     {donations.map((d) => (
@@ -320,7 +320,7 @@ function FundingCard({
             {isDemo
               ? "Sample project — donations are disabled. Browse real projects to donate."
               : completed
-                ? "This project is complete. Thank you, donors!"
+                ? "This project is complete."
                 : "This project isn't accepting donations right now."}
           </p>
         )}

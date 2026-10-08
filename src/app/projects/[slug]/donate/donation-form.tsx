@@ -59,7 +59,7 @@ export function DonationForm({
         <span className="mx-auto flex h-20 w-20 animate-pop items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-primary to-[#138a7f] text-white shadow-2xl shadow-primary/40">
           <HeartHandshake className="h-10 w-10" />
         </span>
-        <h2 className="mt-5 font-serif text-2xl font-semibold">Thank you for donating!</h2>
+        <h2 className="mt-5 font-serif text-2xl font-semibold">Thank you for your donation</h2>
         <p className="mx-auto mt-2 max-w-sm text-muted">{state.message}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <ButtonLink href={`/projects/${slug}`} variant="outline">Back to project</ButtonLink>

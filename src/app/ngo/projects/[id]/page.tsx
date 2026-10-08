@@ -71,9 +71,9 @@ export default async function NgoProjectPage({ params, searchParams }: PageProps
             ? "When everything is ready, submit for review. You can't edit while it's under review."
             : "Your NGO must be verified before you can submit projects.")}
           {project.status === "under_review" && "Under review by our team. Withdraw it if you need to make changes."}
-          {["active", "funded"].includes(project.status) && `Live! Goal ${formatINR(project.goal_amount)}. When the work is done, submit completion proof.`}
+          {["active", "funded"].includes(project.status) && `Live. Goal: ${formatINR(project.goal_amount)}. Submit completion proof once the work is done.`}
           {project.status === "proof_submitted" && "Proof submitted — waiting for our review."}
-          {project.status === "completed" && "Completed and verified. Thank you! 🎉"}
+          {project.status === "completed" && "Completed and verified."}
         </div>
         <div className="flex flex-wrap gap-2">
           {editable && (

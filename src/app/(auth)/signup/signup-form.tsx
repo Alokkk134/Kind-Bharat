@@ -29,7 +29,7 @@ export function SignupForm({ defaultRole }: { defaultRole: "donor" | "ngo" }) {
         </span>
         <p className="text-lg font-semibold">Check your inbox</p>
         <p className="text-muted">{state.message}</p>
-        <p className="text-xs text-muted">Didn&apos;t get it? Check spam, or wait a few minutes and try again.</p>
+        <p className="text-xs text-muted">If you don&apos;t see the email, check your spam folder or try again in a few minutes.</p>
       </div>
     );
   }

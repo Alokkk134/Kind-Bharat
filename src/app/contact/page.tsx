@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Contact", description: "Contact the 
 
 export default function ContactPage() {
   return (
-    <ContentPage eyebrow="Contact" title="We'd love to hear from you" intro="We're a small team. We usually reply within 2 working days.">
+    <ContentPage eyebrow="Contact" title="Contact us" intro="We usually reply within 2 working days.">
       <div className="not-prose grid gap-4 sm:grid-cols-2">
         <a href={`mailto:${CONTACT_EMAIL}`} className="flex gap-3 rounded-3xl border border-border bg-surface p-5 no-underline transition hover:-translate-y-1 hover:shadow-xl">
           <Mail className="h-6 w-6 shrink-0 text-primary" />

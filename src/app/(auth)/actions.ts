@@ -51,7 +51,7 @@ export async function signUpAction(_: ActionState, formData: FormData): Promise<
   if (data.session) redirect(role === "ngo" ? "/ngo" : "/dashboard");
   return {
     ok: true,
-    message: `Almost there! We've sent a confirmation link to ${parsed.data.email}. Open it on this device to activate your account.`,
+    message: `We have sent a confirmation link to ${parsed.data.email}. Open it on this device to activate your account.`,
   };
 }
 

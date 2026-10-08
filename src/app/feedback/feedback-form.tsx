@@ -37,8 +37,8 @@ export function FeedbackForm({
         <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-primary-soft text-primary">
           <Send className="h-8 w-8" />
         </span>
-        <p className="font-serif text-2xl font-semibold">Thank you!</p>
-        <p className="text-muted">{state.message} We read every message.</p>
+        <p className="font-serif text-2xl font-semibold">Thank you for your feedback</p>
+        <p className="text-muted">{state.message} Our team reviews every submission.</p>
         <ButtonLink href="/" variant="outline">Back to home</ButtonLink>
       </div>
     );

@@ -48,7 +48,7 @@ export default async function NgosPage({ searchParams }: PageProps<"/ngos">) {
         <Container className="py-10 sm:py-14">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-ink">Verified organisations</p>
           <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-            NGOs you can <span className="text-gradient">trust</span>
+            Verified <span className="text-gradient">NGOs</span>
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
             Each NGO&apos;s registration documents were checked by our team before they could post projects.

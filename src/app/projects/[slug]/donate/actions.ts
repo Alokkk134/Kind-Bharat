@@ -109,7 +109,7 @@ export async function submitDonationAction(_: ActionState, formData: FormData): 
   return {
     ok: true,
     message: session
-      ? "Thank you! The NGO will confirm your donation after checking their account. Track it in “My donations”."
-      : "Thank you! The NGO will confirm your donation after checking their account. Once confirmed, it appears on the project page.",
+      ? "Your donation details have been submitted. The NGO will confirm it after checking its account. You can track it in “My donations”."
+      : "Your donation details have been submitted. The NGO will confirm it after checking its account. Once confirmed, it will appear on the project page.",
   };
 }
