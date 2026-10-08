@@ -27,6 +27,13 @@ export default async function AdminNgoDetail({ params }: PageProps<"/admin/ngos/
     supabase.from("ngo_payment_details").select("*").eq("ngo_id", id).maybeSingle(),
     supabase.from("profiles").select("full_name, phone, created_at").eq("id", ngo.owner_id).single(),
   ]);
+  const { data: ngoProjects } = await supabase.from("projects").select("id").eq("ngo_id", id);
+  const projectIds = (ngoProjects ?? []).map((p) => p.id);
+  const { data: ngoDons } = projectIds.length
+    ? await supabase.from("donations").select("status, amount, admin_reviewed_at").in("project_id", projectIds)
+    : { data: [] };
+  const dc = (s: string) => (ngoDons ?? []).filter((d) => d.status === s).length;
+  const unchecked = (ngoDons ?? []).filter((d) => d.status === "rejected" && !d.admin_reviewed_at).length;
   const docsWithUrls = await Promise.all(
     (docs ?? []).map(async (d) => ({
       ...d,
@@ -110,6 +117,19 @@ export default async function AdminNgoDetail({ params }: PageProps<"/admin/ngos/
               </ul>
             )}
             <p className="mt-3 text-xs text-muted">Links expire after 10 minutes. Reload the page for fresh links.</p>
+          </Card>
+
+          <Card>
+            <h2 className="mb-3 font-serif text-lg font-semibold">Donations</h2>
+            <dl className="grid grid-cols-3 gap-3 text-center text-sm">
+              <div className="rounded-2xl bg-emerald-50 p-3"><dt className="text-xs text-muted">Confirmed</dt><dd className="text-xl font-semibold">{dc("confirmed")}</dd></div>
+              <div className="rounded-2xl bg-amber-50 p-3"><dt className="text-xs text-muted">Pending</dt><dd className="text-xl font-semibold">{dc("pending")}</dd></div>
+              <div className="rounded-2xl bg-red-50 p-3"><dt className="text-xs text-muted">Rejected</dt><dd className="text-xl font-semibold">{dc("rejected")}</dd></div>
+            </dl>
+            {unchecked > 0 && <p className="mt-3 text-sm font-medium text-danger">{unchecked} rejected donation{unchecked === 1 ? "" : "s"} not yet checked by you.</p>}
+            <Link href={`/admin/donations?ngo=${ngo.id}&status=all`} className="mt-3 inline-block text-sm font-semibold text-primary underline">
+              View all donations of this NGO →
+            </Link>
           </Card>
 
           <Card>

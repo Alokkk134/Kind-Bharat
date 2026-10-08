@@ -30,6 +30,10 @@ const DONOR_FAQ: [string, React.ReactNode][] = [
     "Why doesn't my donation show on the project yet?",
     "Only donations the NGO has confirmed receiving are shown and counted. This stops fake numbers. Most NGOs confirm within a few days. If you made an account, you can track the status under “My donations”.",
   ],
+  [
+    "What if the NGO says it didn't receive my donation?",
+    "Our team watches every rejected donation. If you really paid, email us your UTR and payment screenshot. We check it and can overturn a wrong rejection — the donation then counts toward the goal and shows “Verified by KindBharat”. NGOs that reject genuine donations can be suspended.",
+  ],
   ["Will I get an 80G tax receipt?", "80G receipts are issued by the NGO, not by KindBharat. Look for the 80G badge, and contact the NGO with your UTR number and PAN."],
   ["Is my information public?", "No. Only your first name and last initial (e.g. “Rahul S.”) or “Anonymous” is shown, with the amount. Your email, phone, UTR and screenshot are visible only to that NGO and our team."],
   ["Can donors outside India give?", "Not for now. KindBharat is for donors in India. NGOs need FCRA registration to accept foreign money."],

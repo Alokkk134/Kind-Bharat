@@ -171,3 +171,46 @@ export async function moderateCommentAction(formData: FormData) {
   revalidatePath("/admin/comments");
   revalidatePath("/projects", "layout");
 }
+
+// ---------------- Donations (oversight) ----------------
+
+/**
+ * Admin decision on any donation:
+ * - "confirm": confirm a pending one, or overturn an NGO's rejection (counts toward the goal)
+ * - "reject": reject a pending/confirmed one (e.g. fake UTR)
+ * - "uphold": keep the NGO's rejection, mark as reviewed
+ * A note is always required so there is an audit trail the NGO and donor can see.
+ */
+export async function reviewDonationAdminAction(_: ActionState, formData: FormData): Promise<ActionState> {
+  const supabase = await admin();
+  const parsed = z
+    .object({ id: uuid, decision: z.enum(["confirm", "reject", "uphold"]), note: z.string().trim().max(500).optional() })
+    .safeParse(Object.fromEntries(formData));
+  if (!parsed.success) return { error: "Invalid request." };
+  const { id, decision } = parsed.data;
+  const note = parsed.data.note ?? "";
+  if (note.length < 5) {
+    return { error: "Add a short note explaining your decision (5+ characters).", fieldErrors: { note: "Required" } };
+  }
+
+  const { data: d } = await supabase.from("donations").select("status, project_id").eq("id", id).single();
+  if (!d) return { error: "Donation not found." };
+
+  const update: Partial<import("@/lib/database.types").Donation> = { admin_note: note, admin_reviewed_at: new Date().toISOString() };
+  if (decision === "confirm") update.status = "confirmed";
+  if (decision === "reject") {
+    update.status = "rejected";
+    update.rejection_reason = `Rejected by KindBharat: ${note}`.slice(0, 300);
+  }
+  if (decision === "uphold" && d.status !== "rejected") return { error: "Only rejected donations can be upheld." };
+
+  const { error } = await supabase.from("donations").update(update).eq("id", id);
+  if (error) return { error: friendlyError(error) };
+  revalidatePath("/ngo", "layout");
+  revalidatePath("/projects", "layout");
+  revalidatePath("/dashboard");
+  return done(
+    ["/admin/donations"],
+    decision === "confirm" ? "Donation confirmed by KindBharat — it now counts toward the goal." : decision === "reject" ? "Donation rejected." : "Rejection upheld and marked as reviewed.",
+  );
+}

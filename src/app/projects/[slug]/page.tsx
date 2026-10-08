@@ -207,7 +207,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                       <li key={d.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 text-sm">
                         <strong className="font-serif text-base tabular-nums">{formatINR(d.amount)}</strong>
                         <span>· {d.display_name}</span>
-                        <span className="text-success">· ✅ Confirmed by NGO</span>
+                        <span className="text-success">· ✅ {d.verified_by_admin ? "Verified by KindBharat" : "Confirmed by NGO"}</span>
                         <span className="ml-auto text-muted">{timeAgo(d.confirmed_at)}</span>
                       </li>
                     ))}

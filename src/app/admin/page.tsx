@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Building2, Camera, Flag, FolderKanban, MessagesSquare, Wallet } from "lucide-react";
+import { ArrowUpRight, Building2, Camera, Flag, FolderKanban, IndianRupee, MessagesSquare, Wallet } from "lucide-react";
 import { PageHeader } from "@/components/ui/card";
 import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
@@ -16,6 +16,8 @@ export default async function AdminOverview() {
     { label: "NGOs waiting for verification", value: n.ngos, href: "/admin/ngos", icon: Building2, color: "from-primary to-[#138a7f]" },
     { label: "Payment details to check", value: n.payments, href: "/admin/payments", icon: Wallet, color: "from-[#9a520b] to-accent" },
     { label: "Projects waiting for approval", value: n.projects, href: "/admin/projects", icon: FolderKanban, color: "from-[#1d5fa8] to-[#3b82c4]" },
+    { label: "Rejected donations to check", value: n.rejectedToReview, href: "/admin/donations?status=to_review", icon: IndianRupee, color: "from-[#7c2d12] to-accent-ink" },
+    { label: "Donations pending over 7 days", value: n.stalePending, href: "/admin/donations?status=stale", icon: IndianRupee, color: "from-warning to-accent" },
     { label: "Completion proofs to review", value: n.proofs, href: "/admin/proofs", icon: Camera, color: "from-[#2e7d4f] to-[#4caf7a]" },
     { label: "Open reports", value: n.reports, href: "/admin/reports", icon: Flag, color: "from-danger to-rose" },
     { label: "Comments in the last 7 days", value: n.comments, href: "/admin/comments", icon: MessagesSquare, color: "from-stone-700 to-stone-500" },

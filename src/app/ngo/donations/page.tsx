@@ -83,6 +83,12 @@ export default async function NgoDonationsPage({ searchParams }: PageProps<"/ngo
                   </a>
                 )}
                 {d.status === "rejected" && d.rejection_reason && <p className="mt-2 text-sm text-danger">Reason: {d.rejection_reason}</p>}
+                {d.admin_reviewed_at && (
+                  <p className="mt-2 rounded-2xl bg-sky-50 p-3 text-sm text-sky-900">
+                    <strong>Reviewed by KindBharat:</strong> {d.admin_note}
+                    {d.status === "confirmed" && d.rejection_reason && " — your earlier rejection was overturned."}
+                  </p>
+                )}
                 {d.status === "pending" && (
                   <ReviewForm
                     className="mt-4 border-t border-border pt-4"

@@ -4,6 +4,7 @@ import {
   Flag,
   FolderKanban,
   Gauge,
+  IndianRupee,
   MessagesSquare,
   Wallet,
 } from "lucide-react";
@@ -23,6 +24,7 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
         { href: "/admin/ngos", label: "NGO verification", icon: <Building2 />, badge: n.ngos },
         { href: "/admin/payments", label: "Payment details", icon: <Wallet />, badge: n.payments },
         { href: "/admin/projects", label: "Project approval", icon: <FolderKanban />, badge: n.projects },
+        { href: "/admin/donations", label: "Donations", icon: <IndianRupee />, badge: n.rejectedToReview + n.stalePending },
         { href: "/admin/proofs", label: "Completion proofs", icon: <Camera />, badge: n.proofs },
         { href: "/admin/reports", label: "Reports", icon: <Flag />, badge: n.reports },
         { href: "/admin/comments", label: "Comments", icon: <MessagesSquare /> },

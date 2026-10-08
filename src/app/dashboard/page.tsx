@@ -7,6 +7,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card, EmptyState, PageHeader } from "@/components/ui/card";
 import { CountUp } from "@/components/motion/count-up";
 import { requireRole } from "@/lib/auth";
+import { CONTACT_EMAIL } from "@/lib/config";
 import { DONATION_STATUS } from "@/lib/constants";
 import { formatDateIST, formatINR } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
@@ -20,7 +21,7 @@ export default async function DonorDashboard({ searchParams }: PageProps<"/dashb
 
   const { data: donations } = await supabase
     .from("donations")
-    .select("id, project_id, amount, utr, status, rejection_reason, is_anonymous, created_at, confirmed_at")
+    .select("id, project_id, amount, utr, status, rejection_reason, is_anonymous, created_at, confirmed_at, admin_note, admin_reviewed_at")
     .eq("donor_user_id", session.userId)
     .order("created_at", { ascending: false });
 
@@ -79,6 +80,15 @@ export default async function DonorDashboard({ searchParams }: PageProps<"/dashb
                       {p?.ngo_name} · {formatDateIST(d.created_at)} · UTR {d.utr}
                       {d.is_anonymous && " · shown as Anonymous"}
                     </p>
+                    {d.admin_reviewed_at && (
+                      <p className="mt-1 text-sm text-info">Reviewed by KindBharat: {d.admin_note}</p>
+                    )}
+                    {d.status === "rejected" && !d.admin_reviewed_at && (
+                      <p className="mt-1 text-xs text-muted">
+                        Did you really pay? Email {CONTACT_EMAIL} with your UTR and payment screenshot — our team will check
+                        with the NGO and can overturn a wrong rejection.
+                      </p>
+                    )}
                     {d.status === "rejected" && d.rejection_reason && (
                       <p className="mt-1 text-sm text-danger">NGO note: {d.rejection_reason}</p>
                     )}

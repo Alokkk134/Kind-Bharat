@@ -144,6 +144,8 @@ export type Donation = {
   ip_hash: string | null;
   confirmed_at: string | null;
   reviewed_at: string | null;
+  admin_note: string | null;
+  admin_reviewed_at: string | null;
   created_at: string;
 };
 
@@ -256,6 +258,7 @@ export type PublicDonation = {
   amount: number;
   confirmed_at: string;
   display_name: string;
+  verified_by_admin: boolean;
 };
 
 export type PublicComment = {

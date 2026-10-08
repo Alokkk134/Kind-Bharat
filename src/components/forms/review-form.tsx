@@ -24,6 +24,7 @@ export function ReviewForm({
   field = "decision",
   reasonName = "reason",
   reasonLabel = "Reason (shown to the NGO)",
+  reasonHint = "Required for reject / suspend / remove.",
   children,
   className,
 }: {
@@ -33,6 +34,7 @@ export function ReviewForm({
   field?: string;
   reasonName?: string;
   reasonLabel?: string;
+  reasonHint?: string;
   children?: React.ReactNode;
   className?: string;
 }) {
@@ -59,7 +61,7 @@ export function ReviewForm({
           name={reasonName}
           rows={2}
           error={state.fieldErrors?.[reasonName]}
-          hint="Required for reject / suspend / remove."
+          hint={reasonHint}
         />
       )}
       <div className="flex flex-wrap gap-2">
